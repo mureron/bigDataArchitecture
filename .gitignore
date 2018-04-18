@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+/runtimes/Packages/AdditionalPackages/*
+/runtimes/PackagesJava/*
+/runtimes/Packages/Python/*
+/runtimes/Packages/Spark/*
+
+
+

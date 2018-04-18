@@ -1,0 +1,17 @@
+version: '2'
+services:
+  jupyter:
+    image: jupyter
+    container_name: jupyter
+    ports:
+      - "8800:8800"
+  jupyterlab:
+    image: jupyterlab
+    container_name: jupyterlab
+    ports:
+      - "8900:8900"
+  jupyterhub:
+    image: jupyterhub
+    container_name: jupyterhub
+    ports:
+      - "9000:9000"

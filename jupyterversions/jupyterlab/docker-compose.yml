@@ -1,0 +1,7 @@
+version: '2'
+services:
+  jupyter:
+    image: jupyterlab
+    container_name: jupyterlab
+    ports:
+      - "8900:8900"

@@ -1,0 +1,7 @@
+version: '2'
+services:
+  jupyter:
+    image: jupyterhub
+    container_name: jupyterhub
+    ports:
+      - "9000:9000"
