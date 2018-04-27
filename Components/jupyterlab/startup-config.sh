@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-#source activate py3
-pip install jupyterlab_plotly && \
-    # For JupyterLab
-jupyter labextension install --symlink --py --sys-prefix jupyterlab_plotly 
-jupyter labextension enable --py --sys-prefix jupyterlab_plotly 
+echo "c = get_config()
+c.NotebookApp.notebook_dir = '/BDaaS/volumen/data'
+c.NotebookApp.password_required = False
+c.NotebookApp.token = ''
+c.NotebookApp.allow_origin = '*'
+c.NotebookApp.tornado_settings = {'headers': { 'Content-Security-Policy': \"frame-ancestors  'self' *\" }}" > /BDaaS/dependencies/miniconda/bin/jupyter_notebook_config.py
+
 
 /BDaaS/dependencies/miniconda/bin/jupyter-lab --allow-root --ip $(hostname) --port 8900 --no-browser --config=/BDaaS/dependencies/miniconda/bin/jupyter_notebook_config.py
 

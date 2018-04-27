@@ -1,7 +1,7 @@
 version: '2'
 services:
   jupyter:
-    image: jupyter
+    image: jupyter:0_0_1
     container_name: jupyter
     ports:
       - "8800:8800"

@@ -11,9 +11,10 @@ ARG MINICONDA3_PACKAGE
 
 # Copy the installer to and specific 
 
-RUN apt-get -y update && apt-get install -y bzip2 git build-essential net-tools && rm -rf /var/lib/apt/lists/* 
-
-RUN mkdir jre
+RUN apt-get -y update &&  \
+    apt-get install -y bzip2 git build-essential net-tools && \
+    rm -rf /var/lib/apt/lists/* && \ 
+    mkdir jre
 
 COPY packages/jre ./jre/  
 COPY packages/$MINICONDA3_PACKAGE ./ 
@@ -27,3 +28,4 @@ ENV JAVA_HOME="$INSTALL_DIR/jre"
 ENV PATH="$PATH:$JAVA_HOME/bin:$INSTALL_DIR/miniconda/bin"
 
 RUN conda update conda && env > /etc/environment 
+
