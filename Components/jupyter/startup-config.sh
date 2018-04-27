@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "c = get_config()
-c.NotebookApp.notebook_dir = '/BDaaS/volumen/data'
+c.NotebookApp.notebook_dir = '/data/jupyter/'
 c.NotebookApp.password_required = False
 c.NotebookApp.token = ''
 c.NotebookApp.allow_origin = '*'

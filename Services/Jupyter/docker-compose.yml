@@ -5,3 +5,8 @@ services:
     container_name: jupyter
     ports:
       - "8800:8800"
+    volumes: 
+      - jupyter-vol:/data/jupyter/
+
+volumes:
+  jupyter-vol:
