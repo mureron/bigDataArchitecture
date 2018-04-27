@@ -16,7 +16,7 @@ HADOOP_CDH_URL="http://archive.cloudera.com/cdh5/cdh/5/$HADOOP_CDH_PACKAGE"
 SPARK_CDH_PACKAGE="spark-1.6.0-cdh5.10.0.tar.gz"
 SPARK_CDH_URL="http://archive.cloudera.com/cdh5/cdh/5/$SPARK_CDH_PACKAGE"
 
-SPARK_PACKAGE="spark-2.1.1-bin-hadoop2.7.tgz"
+SPARK_PACKAGE="spark-2.3.0-bin-without-hadoop"
 SPARK_URL="https://d3kbcqa49mib13.cloudfront.net/$SPARK_PACKAGE"
 
 CASSANDRA_PACKAGE="apache-cassandra-3.11.0-bin.tar.gz"
