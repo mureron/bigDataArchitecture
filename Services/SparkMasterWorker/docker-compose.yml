@@ -1,0 +1,16 @@
+version: '2'
+services:
+  spark-master:
+    image: sparkmaster:0_0_1
+    container_name: spark-master
+    ports:
+      - "8080:8080" #Web Interface Master
+      - "7077:7077" #Master Port
+  spark-worker-1:
+    image: sparkworker:0_0_1
+    container_name: spark-master
+    depends_on:
+      -spark-master
+    ports:
+      - "8081:8081" #Web Interface Workers
+      
