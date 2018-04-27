@@ -10,13 +10,13 @@ JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2
 ZOOKEEPER_PACKAGE="zookeeper-3.4.10.tar.gz"
 ZOOKEEPER_URL="http://apache.rediris.es/zookeeper/stable/$ZOOKEEPER_PACKAGE"
 
-HADOOP_CDH_PACKAGE="hadoop-2.6.0-cdh5.10.0.tar.gz"
-HADOOP_CDH_URL="http://archive.cloudera.com/cdh5/cdh/5/$HADOOP_CDH_PACKAGE"
+HADOOP_PACKAGE="hadoop-2.7.6.tar.gz"
+HADOOP_URL="http://archive.cloudera.com/cdh5/cdh/5/$HADOOP_CDH_PACKAGE"
 
 SPARK_CDH_PACKAGE="spark-1.6.0-cdh5.10.0.tar.gz"
 SPARK_CDH_URL="http://archive.cloudera.com/cdh5/cdh/5/$SPARK_CDH_PACKAGE"
 
-SPARK_PACKAGE="spark-2.3.0-bin-without-hadoop"
+SPARK_PACKAGE="spark-2.3.0-bin-without-hadoop.tgz"
 SPARK_URL="https://d3kbcqa49mib13.cloudfront.net/$SPARK_PACKAGE"
 
 CASSANDRA_PACKAGE="apache-cassandra-3.11.0-bin.tar.gz"
@@ -53,10 +53,6 @@ SHELLINABOX_PACKAGE="shellinabox.tar.gz"
 SHELLINABOX_ZIP="source-archive.zip"
 SHELLINABOX_URL="https://storage.googleapis.com/google-code-archive-source/v2/code.google.com/shellinabox/$SHELLINABOX_ZIP"
 
-# FLINK_PACKAGE="flink-1.3.2-bin-hadoop27-scala_2.11.tgz"
-# FLINK_URL="https://archive.apache.org/dist/flink/flink-1.3.2/$FLINK_PACKAGE"
-# FLINK_PACKAGE="flink-1.3.2.tar.gz"
-# FLINK_URL="https://dbox.iti.upv.es/oc/index.php/s/ALyaJFuAE6bvP8d/download"
 FLINK_PACKAGE="flink.tar.gz"
 FLINK_URL="http://apache.rediris.es/flink/flink-1.4.0/$FLINK_PACKAGE"
 
