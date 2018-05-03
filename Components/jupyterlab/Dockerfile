@@ -17,6 +17,10 @@ RUN apt-get -y update && apt-get install libxrender1 && rm -rf /var/lib/apt/list
 RUN conda install -c conda-forge jupyterlab && pip install -r lib_requirements.txt && \ 
     conda install -c r r-base r-irkernel r-irdisplay && \
     conda install -c r rpy2 && \ 
+    pip install nbconvert 
+
+RUN apt-get -y update && apt-get install -y pandoc 
+RUN apt-get install -y texlive-xetex && \
     R -e "IRkernel::installspec(user = FALSE)"  && \
     conda clean -p
 

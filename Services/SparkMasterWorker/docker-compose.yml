@@ -1,16 +1,35 @@
 version: '2'
 services:
-  spark-master:
+  sparkmaster:
     image: sparkmaster:0_0_1
-    container_name: spark-master
+    container_name: sparkmaster
+    hostname: sparkmaster    
     ports:
       - "8080:8080" #Web Interface Master
       - "7077:7077" #Master Port
-  spark-worker-1:
+# Setup the Worker Node 1.
+  sparkworker01:
     image: sparkworker:0_0_1
-    container_name: spark-master
+    hostname: sparkworker01
     depends_on:
-      -spark-master
+      - sparkmaster
+    links:
+      - sparkmaster
+    environment:
+      - MASTER_HOSTNAME=sparkmaster
     ports:
-      - "8081:8081" #Web Interface Workers
-      
+      - "8081:8081" 
+# Setup the Worker Node 2
+  sparkworker02:
+    image: sparkworker:0_0_1
+    hostname: sparkworker02
+    depends_on:
+      - sparkmaster
+    links:
+      - sparkmaster
+    environment:
+      - MASTER_HOSTNAME=sparkmaster
+      - SPARK_WORKER_WEBUI_PORT=8081
+    ports:
+      - "8082:8081" 
+ 
