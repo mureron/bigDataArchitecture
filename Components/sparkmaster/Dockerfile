@@ -7,6 +7,6 @@ WORKDIR /BDaaS/dependencies
 COPY startup-master-config.sh ./
 COPY packages/ ./
 
-RUn apt-get update && apt-get install -y iputils-ping
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils iputils-ping
 
-CMD ["/BDaaS/dependencies/startup-master-config.sh"]
+CMD ["/bin/bash", "/BDaaS/dependencies/startup-master-config.sh"]

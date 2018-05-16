@@ -1,25 +1,32 @@
 version: '2'
+
 services:
   sparkmaster:
     image: sparkmaster:0_0_1
-    container_name: sparkmaster
-    hostname: sparkmaster    
+    hostname: sparkmaster  
+    environment:
+      - MASTER_PORT=7077
+      - MASTER_WEBUI_PORT=8080
     ports:
       - "8080:8080" #Web Interface Master
       - "7077:7077" #Master Port
-# Setup the jupyter.
-  jupyter:
-    image: jupyterlab:0_0_1:0_0_1
-    hostname: jupyter
+# Setup the jupyter lab
+  jupyterlab:
+    image: jupyterlab:0_0_1
+    hostname: jupyterlab
     depends_on:
       - sparkmaster
     links:
       - sparkmaster
     environment:
+      - STANDALONE="NO"
+      - JUPYTERPORT=8900
       - MASTER_HOSTNAME=sparkmaster
-      - DISTRIBUTED=1
+      - MASTER_PORT=7077
     ports:
-      - "8081:8081" 
+      - "8900:8900" # WEB interface JupyterLab
+    volumes: 
+      - jupyter-vol:/data/jupyter/
 # Setup the Worker Node 1.
   sparkworker01:
     image: sparkworker:0_0_1
@@ -30,8 +37,10 @@ services:
       - sparkmaster
     environment:
       - MASTER_HOSTNAME=sparkmaster
+      - WORKER_WEBUI_PORT=8081
+      - MASTER_PORT=7077
     ports:
-      - "8081:8081" 
+      - "8081:8081" # WEB interface worker
 # Setup the Worker Node 2
   sparkworker02:
     image: sparkworker:0_0_1
@@ -42,7 +51,9 @@ services:
       - sparkmaster
     environment:
       - MASTER_HOSTNAME=sparkmaster
-      - SPARK_WORKER_WEBUI_PORT=8081
+      - WORKER_WEBUI_PORT=8081
+      - MASTER_PORT=7077
     ports:
-      - "8082:8081" 
- 
+      - "8082:8081" # WEB interface worker
+volumes:
+  jupyter-vol:

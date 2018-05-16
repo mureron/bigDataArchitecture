@@ -10,9 +10,8 @@ LIB_DEPENDENCY="../../AdditionalInfo/library/"
 
 mkdir -p packages
 cp $LIB_DEPENDENCY/lib_requirements.txt packages
-cp $PACKAGE_REPO/Spark/$SPARK_PACKAGE packages
 
-mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE --strip-components 1 -C packages/spark    
+mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE1 --strip-components 1 -C packages/spark    
 
 
 # In the version file are saved all the references to the 

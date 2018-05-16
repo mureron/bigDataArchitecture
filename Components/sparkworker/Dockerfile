@@ -7,7 +7,6 @@ WORKDIR /BDaaS/dependencies
 COPY startup-worker-config.sh ./
 COPY packages/ ./
 
-RUN apt-get update && apt-get install -y iputils-ping
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils iputils-ping
 
-
-CMD ["/BDaaS/dependencies/startup-worker-config.sh"]
+CMD ["/bin/bash", "/BDaaS/dependencies/startup-worker-config.sh"]
