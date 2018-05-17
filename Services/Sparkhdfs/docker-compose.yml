@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+
+# Set up NameNode
+  hdfs-namenode:
+    image: hdfsnamenode:0_0_1
+    environment: 
+      - NAMENODE_METADATA_PORT=9000
+      - CLUSTER_NAME=HDFS_TEST
+      - NAMENODE_WEBUI_PORT=50070
+      - REPLI_FACTOR=1
+    ports:
+      - "9000:9000" # HDFS PORT
+      - "50070:50070" # WEB NameNode Int
+# Set up DataNode    
+  hdfs-datanode:
+    image: hdfsdatanode:0_0_1
+    ports:
+      - "50075-50080:50075" # WEB DataNode Int   
+    depends_on:
+      - hdfs-namenode
+    links: 
+      - hdfs-namenode
+    environment: 
+      - NAMENODE_HOSTNAME=hdfs-namenode
+      - DATANODE_WEBUI_PORT=50075
+      - NAMENODE_METADATA_PORT=9000
+      - REPLI_FACTOR=1
+
+# Note: The depends_on and links must be set up using the service name
+      
+
