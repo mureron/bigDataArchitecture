@@ -23,6 +23,7 @@ COPY packages/$MINICONDA2_PACKAGE ./
 # Install JRE and Miniconda
 
 RUN bash $MINICONDA2_PACKAGE -b -p /BDaaS/dependencies/miniconda && rm $MINICONDA2_PACKAGE 
+RUN apt-get -y update && apt-get -y install ant gcc g++ libkrb5-dev libffi-dev libmysqlclient-dev libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit libsqlite3-dev libtidy-0.99-0 libxml2-dev libxslt-dev make libldap2-dev maven libgmp3-dev
 
 ENV INSTALL_DIR=/BDaaS/dependencies
 ENV JAVA_HOME="$INSTALL_DIR/jre" 
