@@ -26,7 +26,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
   <property><name>dfs.client.use.datanode.hostname</name><value>false</value></property>
   <property><name>dfs.datanode.use.datanode.hostname</name><value>false</value></property>
 
-  <property><name>dfs.namenode.name.dir</name><value>$HADOOP_HOME/data/nameNode</value></property>
+  <property><name>dfs.namenode.name.dir</name><value>file:///hdfsData/nameNode/</value></property>
   <property><name>dfs.namenode.checkpoint.dir</name><value>$HADOOP_HOME/data/secondary</value></property>
   <property><name>dfs.namenode.http-adress</name><value>$HOSTNAME:$NAMENODE_WEBUI_PORT</value></property>
   <property><name>dfs.namenode.datanode.registration.ip-hostname-check</name><value>false</value></property>
@@ -38,9 +38,18 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 </configuration>" > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 
 echo "Namenode"
-hdfs namenode -format $CLUSTER_NAME
+
+if [ -e /hdfsData/nameNode/current/VERSION ]
+then
+    echo "Using a Previuslly formatted HDFS file system"
+else
+  hdfs namenode -format $CLUSTER_NAME
+fi
 
 hdfs namenode
+
+
+
 
 # Wait for HDFS services to be up and running
 sleep 5

@@ -14,7 +14,7 @@ cp $LIB_DEPENDENCY/lib_requirements.txt packages
 
 #Including the Spark Support
 
-mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE1 --strip-components 1 -C packages/spark
+mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE --strip-components 1 -C packages/spark
 
 
 #Including HDFS Hadoop datanode

@@ -11,6 +11,8 @@ services:
     ports:
       - "9000:9000" # HDFS PORT
       - "50070:50070" # WEB NameNode Int
+    volumes:
+      - hdfs-name-node:/hdfsData/nameNode/
   sparkmaster:
     image: sparkmaster:0_0_1
     environment:
@@ -62,5 +64,9 @@ services:
     ports:
       - "8081-8090:8081" # WEB interface worker
       - "50000-50010:50075" # WEB DataNode Int   
+    volumes:    
+      - hdfs-data-node:/hdfsData/dataNode/
 volumes:
   jupyter-vol:
+  hdfs-name-node:
+  hdfs-data-node:

@@ -38,10 +38,10 @@ then
         <property><name>dfs.client.use.datanode.hostname</name><value>false</value></property>
         <property><name>dfs.datanode.use.datanode.hostname</name><value>false</value></property>
 
-        <property><name>dfs.namenode.name.dir</name><value>$HADOOP_HOME/data/nameNode</value></property>
+        <property><name>dfs.namenode.name.dir</name><value>file:///hdfsData/nameNode</value></property>
         <property><name>dfs.namenode.http-adress</name><value>$NAMENODE_HOSTNAME:$NAMENODE_WEBUI_PORT</value></property>
   
-        <property><name>dfs.datanode.data.dir</name><value>$HADOOP_HOME/data/dataNode</value></property>
+        <property><name>dfs.datanode.data.dir</name><value>file:///hdfsData/dataNode</value></property>
         <property><name>dfs.datanode.http.address</name><value>$HOSTNAME:$DATANODE_WEBUI_PORT</value></property>
 
         <property> <name>dfs.replication</name> <value>$REPLI_FACTOR</value></property>
