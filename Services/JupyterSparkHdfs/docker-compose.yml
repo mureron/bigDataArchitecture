@@ -1,0 +1,66 @@
+version: '2'
+services:
+# Set up NameNode
+  hdfs-namenode:
+    image: hdfsnamenode:0_0_1
+    environment: 
+      - NAMENODE_METADATA_PORT=9000
+      - CLUSTER_NAME=HDFS_TEST
+      - NAMENODE_WEBUI_PORT=50070
+      - REPLI_FACTOR=1
+    ports:
+      - "9000:9000" # HDFS PORT
+      - "50070:50070" # WEB NameNode Int
+  sparkmaster:
+    image: sparkmaster:0_0_1
+    environment:
+      - MASTER_PORT=7077
+      - MASTER_WEBUI_PORT=8080
+    ports:
+      - "8080:8080" #Web Interface Master
+      - "7077:7077" #Master Port
+# Setup the jupyter lab
+  jupyterlab:
+    image: jupyterlab:0_0_1
+    depends_on:
+      - hdfs-namenode
+      - sparkmaster
+    links:
+      - hdfs-namenode
+      - sparkmaster
+    environment:
+      - STANDALONE=NO
+      - JUPYTERPORT=8900
+      - HDFS=YES
+      - NAMENODE_HOSTNAME=hdfs-namenode
+      - DATANODE_WEBUI_PORT=50075
+      - NAMENODE_METADATA_PORT=9000
+      - REPLI_FACTOR=1
+      - MASTER_HOSTNAME=sparkmaster
+      - MASTER_PORT=7077
+    ports:
+      - "8900:8900" # WEB interface JupyterLab
+    volumes: 
+      - jupyter-vol:/data/jupyter/
+# Setup the Worker Node 1.
+  hdfs-datanode-sparkworker:
+    image: hdfsdatanodesparkworker:0_0_1
+    depends_on:
+      - hdfs-namenode
+      - sparkmaster
+    links:
+      - hdfs-namenode
+      - sparkmaster
+    environment:
+      - MASTER_HOSTNAME=sparkmaster
+      - WORKER_WEBUI_PORT=8081
+      - MASTER_PORT=7077
+      - NAMENODE_HOSTNAME=hdfs-namenode
+      - DATANODE_WEBUI_PORT=50075
+      - NAMENODE_METADATA_PORT=9000
+      - REPLI_FACTOR=1
+    ports:
+      - "8081-8090:8081" # WEB interface worker
+      - "50000-50010:50075" # WEB DataNode Int   
+volumes:
+  jupyter-vol:
