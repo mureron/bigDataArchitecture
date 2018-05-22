@@ -28,7 +28,6 @@ then
         <property><name>hadoop.http.staticuser.user</name><value>root</value></property>
     </configuration>" > $HADOOP_HOME/etc/hadoop/core-site.xml
 
-
     # Set path for the HDFS
 
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -48,11 +47,9 @@ then
         <property> <name>dfs.replication</name> <value>$REPLI_FACTOR</value></property>
         <property> <name>dfs.webhdfs.enabled</name><value>true</value></property>
     </configuration>" > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
-
-
-    echo "Datanode On JupyterLab Node"
+    # echo "Datanode On JupyterLab Node"
     # Start Datanode 
-    hdfs datanode &
+    # hdfs datanode &
 fi
 
 if [[ $STANDALONE == "YES" ]];
