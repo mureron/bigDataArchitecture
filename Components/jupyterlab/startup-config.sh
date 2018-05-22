@@ -5,7 +5,7 @@ export JUPYTERPATH=$RUNTIME_DIR/miniconda/bin
 export SPARK_HOME="$RUNTIME_DIR/spark"
 export HADOOP_HOME="$RUNTIME_DIR/hadoop"
 export PATH="$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$PATH"
-
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
 
 
 echo "c = get_config()
@@ -15,7 +15,7 @@ c.NotebookApp.token = ''
 c.NotebookApp.allow_origin = '*'
 c.NotebookApp.tornado_settings = {'headers': { 'Content-Security-Policy': \"frame-ancestors  'self' *\" }}" > $JUPYTERPATH/jupyter_notebook_config.py
 
- echo "Jupyter Mode $STANDALONE & HDFS $HDFS"
+echo "Jupyter Mode $STANDALONE & HDFS $HDFS"
 
 if  [[ $HDFS == "YES" ]]; 
 then

@@ -10,6 +10,10 @@ JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2
 ZOOKEEPER_PACKAGE="zookeeper-3.4.10.tar.gz"
 ZOOKEEPER_URL="http://apache.rediris.es/zookeeper/stable/$ZOOKEEPER_PACKAGE"
 
+
+HUE_PACKAGE="hue-release-4.2.0.tar.gz"
+HUE_URL="https://github.com/cloudera/hue/archive/$HUE_PACKAGE"
+
 HADOOP_PACKAGE="hadoop-2.7.6.tar.gz"
 HADOOP_URL="http://archive.cloudera.com/cdh5/cdh/5/$HADOOP_CDH_PACKAGE"
 
