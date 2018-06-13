@@ -30,27 +30,32 @@ then
 
     # Set path for the HDFS
 
-    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-    <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
-    <configuration> 
-      <property><name>dfs.webhdfs.enabled</name><value>true</value></property>
-        <property><name>dfs.permissions.enabled</name><value>false</value></property>
-        <property><name>dfs.client.use.datanode.hostname</name><value>false</value></property>
-        <property><name>dfs.datanode.use.datanode.hostname</name><value>false</value></property>
-
-        <property><name>dfs.namenode.name.dir</name><value>file:///hdfsData/nameNode</value></property>
-        <property><name>dfs.namenode.http-adress</name><value>$NAMENODE_HOSTNAME:$NAMENODE_WEBUI_PORT</value></property>
   
-        <property><name>dfs.datanode.data.dir</name><value>file:///hdfsData/dataNode</value></property>
-        <property><name>dfs.datanode.http.address</name><value>$HOSTNAME:$DATANODE_WEBUI_PORT</value></property>
-
-        <property> <name>dfs.replication</name> <value>$REPLI_FACTOR</value></property>
-        <property> <name>dfs.webhdfs.enabled</name><value>true</value></property>
-    </configuration>" > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
-    # echo "Datanode On JupyterLab Node"
+      # echo "Datanode On JupyterLab Node"
     # Start Datanode 
     # hdfs datanode &
 fi
+
+  #echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+  #  <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
+  #  <configuration> 
+  #    <property><name>dfs.webhdfs.enabled</name><value>true</value></property>
+  #      <property><name>dfs.permissions.enabled</name><value>false</value></property>
+  #      <property><name>dfs.client.use.datanode.hostname</name><value>false</value></property>
+  #      <property><name>dfs.datanode.use.datanode.hostname</name><value>false</value></property>
+#
+  #      <property><name>dfs.namenode.name.dir</name><value>file:///hdfsData/nameNode</value></property>
+  #      <property><name>dfs.namenode.http-adress</name><value>$NAMENODE_HOSTNAME:$NAMENODE_WEBUI_PORT</value></property>
+  #
+  #      <property><name>dfs.datanode.data.dir</name><value>file:///hdfsData/dataNode</value></property>
+  #      <property><name>dfs.datanode.http.address</name><value>$HOSTNAME:$DATANODE_WEBUI_PORT</value></property>
+#
+  #      <property> <name>dfs.replication</name> <value>$REPLI_FACTOR</value></property>
+  #      <property> <name>dfs.webhdfs.enabled</name><value>true</value></property>
+  #  </configuration>" > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+
+
+# 
 
 if [[ $STANDALONE == "YES" ]];
 then

@@ -2,7 +2,7 @@
 FROM python3:0_0_1
 LABEL maintainer="Ronal Muresano"
 
-WORKDIR /BDaaS/
+WORKDIR /eslap/legacy
 
 COPY startup-config.sh ./
 COPY packages/ ./
