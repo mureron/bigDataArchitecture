@@ -1,6 +1,5 @@
 # Parto de la imagen principal
 FROM  python2:0_0_1
-LABEL maintainer="Radiatus Team"
 
 WORKDIR /eslap/legacy
 

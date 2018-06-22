@@ -1,5 +1,4 @@
 FROM eslap.cloud/runtime/native:2_0_0
-LABEL maintainer="Radiatus Team"
 
 # Creating the directory where all the information will be managed
 

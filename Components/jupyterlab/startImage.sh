@@ -22,8 +22,6 @@ mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE --strip-com
 mkdir packages/hadoop && tar -xzvf $PACKAGE_REPO/Hadoop/$HADOOP_PACKAGE --strip-components 1 -C packages/hadoop
 rm -rf packages/hadoop/share/doc
 
-
-
 # In the version file are saved all the references to the 
 docker build  -t $DOCKER_TAG .
 rm -rf packages
