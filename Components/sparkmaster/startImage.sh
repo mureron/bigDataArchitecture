@@ -12,6 +12,9 @@ mkdir -p packages
 cp $LIB_DEPENDENCY/lib_requirements.txt packages
 
 mkdir packages/spark && tar -xzvf $PACKAGE_REPO/Spark/$SPARK_PACKAGE --strip-components 1 -C packages/spark
+mv packages/spark/conf/spark-env.sh.template packages/spark/conf/spark-env.sh
+mv packages/spark/conf/log4j.properties.template packages/spark/conf/log4j.properties
+mv packages/spark/conf/spark-defaults.conf.template packages/spark/conf/spark-defaults.conf
 
 #Including HDFS Hadoop datanode
 

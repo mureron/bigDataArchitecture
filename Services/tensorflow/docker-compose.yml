@@ -1,0 +1,81 @@
+version: '2'
+services:
+
+  tf-worker-0:
+    image: tfworker:0_0_1
+    hostname: tf-worker-0
+    container_name: tf-worker-0
+    environment:
+      - JOB=worker
+      - TASK=0
+    ports:
+      - 2222
+
+  tf-worker-1:
+    image: tfworker:0_0_1
+    hostname: tf-worker-1
+    container_name: tf-worker-1
+    environment:
+      - JOB=worker
+      - TASK=1
+    ports:
+      - 2222
+
+  tf-worker-2:
+    image: tfworker:0_0_1
+    hostname: tf-worker-2
+    container_name: tf-worker-2
+    environment:
+      - JOB=worker
+      - TASK=2
+    ports:
+      - 2222
+
+  tf-worker-3:
+    image: tfworker:0_0_1
+    hostname: tf-worker-3
+    container_name: tf-worker-3
+    environment:
+      - JOB=worker
+      - TASK=3
+    ports:
+      - 2222
+
+  tf-ps-0:
+    image: tfworker:0_0_1
+    hostname: tf-ps-0
+    container_name: tf-ps-0
+    environment:
+      - JOB=ps
+      - TASK=0
+    ports:
+      - 2222
+
+  tf-ps-1:
+    image: tfworker:0_0_1
+    hostname: tf-ps-1
+    container_name: tf-ps-1
+    environment:
+      - JOB=ps
+      - TASK=1
+    ports:
+      - 2222
+
+  jupyterlab:
+    image: jupyterlab-tf:0_0_1
+    hostname: tf-master-0
+    container_name: tf-master-0
+    environment:
+      - STANDALONE="YES"
+      - HDFS="NO"
+      - JUPYTERPORT=8900
+      - JOB=master
+      - TASK=0
+    ports:
+      - "8900:8900"
+      - 2222
+    volumes: 
+      - jupyter-vol:/data/jupyter/
+
+volumes:
+  jupyter-vol:

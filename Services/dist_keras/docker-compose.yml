@@ -1,0 +1,44 @@
+version: '2'
+services:
+  sparkmaster-keras:
+    image: sparkmaster-keras:0_0_1
+    hostname: sparkmaster-keras  
+    environment:
+      - MASTER_PORT=7077
+      - MASTER_WEBUI_PORT=8080
+    ports:
+      - "8080:8080" #Web Interface Master
+      - "7077:7077" #Master Port
+# Setup the jupyter lab
+  jupyterlab:
+    image: jupyterlab:0_0_1
+    hostname: jupyterlab
+    depends_on:
+      - sparkmaster-keras
+    links:
+      - sparkmaster-keras
+    environment:
+      - STANDALONE=NO
+      - JUPYTERPORT=8900
+      - MASTER_HOSTNAME=sparkmaster-keras
+      - MASTER_PORT=7077
+    ports:
+      - "8900:8900" # WEB interface JupyterLab
+    volumes: 
+      - jupyter-vol:/data/jupyter/
+# Setup the Worker Node 1.
+  sparkworker-keras:
+    image: sparkworker-keras:0_0_1
+    hostname: sparkworker-keras
+    depends_on:
+      - sparkmaster-keras
+    links:
+      - sparkmaster-keras
+    environment:
+      - MASTER_HOSTNAME=sparkmaster-keras
+      - WORKER_WEBUI_PORT=8081
+      - MASTER_PORT=7077
+    ports:
+      - "8081-8090:8081" # WEB interface worker
+volumes:
+  jupyter-vol:

@@ -90,6 +90,9 @@ MINICONDA2_URL="https://repo.continuum.io/miniconda/$MINICONDA2_PACKAGE"
 MINICONDA3_PACKAGE="Miniconda3-latest-Linux-x86_64.sh"
 MINICONDA3_URL="https://repo.continuum.io/miniconda/$MINICONDA3_PACKAGE"
 
+NEO4J_VERSION="3.4.1"
+NEO4J_PACKAGE="neo4j-community-$NEO4J_VERSION-unix.tar.gz"
+
 ############################################
 #  Dependencias Java:
 

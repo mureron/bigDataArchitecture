@@ -1,6 +1,7 @@
 FROM eslap.cloud/runtime/native:2_0_0
 
 # Creating the directory where all the information will be managed
+LABEL maintainer="Radiatus Team"
 
 # Link to the working directiry
 WORKDIR /eslap/legacy
