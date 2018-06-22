@@ -1,0 +1,9 @@
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      6/python        
+tcp        0      0 127.0.0.11:46071        0.0.0.0:*               LISTEN      -               
+tcp        0      0 172.22.0.6:47074        172.22.0.5:2222         ESTABLISHED 6/python        
+tcp        0      0 172.22.0.6:35662        172.22.0.2:2222         ESTABLISHED 6/python        
+tcp        0      0 172.22.0.6:2222         172.22.0.5:38912        ESTABLISHED 6/python        
+tcp        0      0 172.22.0.6:51674        172.22.0.7:2222         ESTABLISHED 6/python        
+udp        0      0 127.0.0.11:59097        0.0.0.0:*                           -               

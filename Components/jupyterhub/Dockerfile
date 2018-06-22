@@ -1,8 +1,7 @@
 # Parto de la imagen principal
 FROM python3:0_0_1
-LABEL maintainer="Ronal Muresano"
 
-WORKDIR /BDaaS/
+WORKDIR /eslap/legacy
 COPY startup-config.sh ./
 COPY packages/ ./
 
@@ -20,6 +19,6 @@ RUN apt-get -y update && apt-get -y install libpam0g-dev npm nodejs-legacy opens
     conda install -c conda-forge jupyterhub && conda install notebook && \ 
     rm -rf /var/lib/apt/lists/*  && pip install -r lib_requirements.txt
 
-CMD ["/BDaaS/startup-config.sh"]
+ENTRYPOINT ./startup-config.sh
 
 

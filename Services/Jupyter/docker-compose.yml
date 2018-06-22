@@ -3,8 +3,12 @@ services:
   jupyter:
     image: jupyter:0_0_1
     container_name: jupyter
+    environment:
+      - STANDALONE="YES"
+      - HDFS="NO"
+      - JUPYTERPORT=8900
     ports:
-      - "8800:8800"
+      - "8900:8900"
     volumes: 
       - jupyter-vol:/data/jupyter/
 

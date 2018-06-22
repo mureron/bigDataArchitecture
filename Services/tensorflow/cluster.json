@@ -1,0 +1,1 @@
+{"ps": ["tf-ps-0:2222", "tf-ps-1:2222"], "worker": ["tf-worker-0:2222", "tf-worker-1:2222", "tf-worker-2:2222", "tf-worker-3:2222"], "master": ["tf-master-0:2222"]}

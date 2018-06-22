@@ -1,6 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
-/Runtimes/Packages/*
+/Runtimes/Packages/Hadoop
+/Runtimes/Packages/Hue
+/Runtimes/Packages/Java
+/Runtimes/Packages/Python
+/Runtimes/Packages/Spark
+/Runtimes/Packages/Neo4j
+
 /Data/*
 
 

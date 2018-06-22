@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export RUNTIME_DIR=/BDaaS/dependencies
+export RUNTIME_DIR=/eslap/legacy
 export JUPYTERPATH=$RUNTIME_DIR/miniconda/bin
 export SPARK_HOME="$RUNTIME_DIR/spark"
 export HADOOP_HOME="$RUNTIME_DIR/hadoop"
@@ -28,28 +28,6 @@ then
         <property><name>hadoop.http.staticuser.user</name><value>root</value></property>
     </configuration>" > $HADOOP_HOME/etc/hadoop/core-site.xml
 
-    # Set path for the HDFS
-
-    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-    <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
-    <configuration> 
-      <property><name>dfs.webhdfs.enabled</name><value>true</value></property>
-        <property><name>dfs.permissions.enabled</name><value>false</value></property>
-        <property><name>dfs.client.use.datanode.hostname</name><value>false</value></property>
-        <property><name>dfs.datanode.use.datanode.hostname</name><value>false</value></property>
-
-        <property><name>dfs.namenode.name.dir</name><value>file:///hdfsData/nameNode</value></property>
-        <property><name>dfs.namenode.http-adress</name><value>$NAMENODE_HOSTNAME:$NAMENODE_WEBUI_PORT</value></property>
-  
-        <property><name>dfs.datanode.data.dir</name><value>file:///hdfsData/dataNode</value></property>
-        <property><name>dfs.datanode.http.address</name><value>$HOSTNAME:$DATANODE_WEBUI_PORT</value></property>
-
-        <property> <name>dfs.replication</name> <value>$REPLI_FACTOR</value></property>
-        <property> <name>dfs.webhdfs.enabled</name><value>true</value></property>
-    </configuration>" > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
-    # echo "Datanode On JupyterLab Node"
-    # Start Datanode 
-    # hdfs datanode &
 fi
 
 if [[ $STANDALONE == "YES" ]];

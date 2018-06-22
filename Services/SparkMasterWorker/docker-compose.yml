@@ -9,7 +9,7 @@ services:
       - "7077:7077" #Master Port
 # Setup the jupyter.
   jupyter:
-    image: jupyterlab:0_0_1:0_0_1
+    image: jupyterlab:0_0_1
     hostname: jupyter
     depends_on:
       - sparkmaster
